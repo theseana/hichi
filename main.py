@@ -1,0 +1,7 @@
+print("ARIAN")
+print("ARYA")
+print("MOBIN")
+print("MAHDI")
+print("AMIR")
+print("FARHAN")
+print("ILIYA")
