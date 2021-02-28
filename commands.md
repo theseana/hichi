@@ -34,3 +34,22 @@ CREATE TABLE grade(
     FOREIGN KEY(people) REFERENCES person(personId)
 );
 ```
+
+# MSQYL Python Package
+`pip install mysql-connector-python`
+or 
+`pip install pymysql`
+
+# CRUD
+### (C)reate (R)ead (U)pdate (D)elete
+<br>
+
+**all commands use for hichi database**
+### CREATE
+
+```
+INSERT INTO person
+(firstName, lastName)
+VALUES
+('amir', 'farivar');
+```
