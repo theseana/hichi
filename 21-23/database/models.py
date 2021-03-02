@@ -1,7 +1,9 @@
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer
-from connection import Connection
+from .connection import Connection
 Base = declarative_base()
+
+
 class Movie(Base):
     __tablename__ = 'movie'
     id = Column(Integer, primary_key=True, autoincrement=True)
