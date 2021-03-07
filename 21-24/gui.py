@@ -36,7 +36,6 @@ class GUI(tk.Tk):
         tk.Button(self.frame_c, text="Create", command=self.create).grid(row=4, column=0)
 
 
-    # github.com/theseana/hichi
         self.frame_r = tk.LabelFrame(self, text='Read')
         self.frame_r.grid(row=1, column=0)
 
@@ -62,7 +61,8 @@ class GUI(tk.Tk):
         verscrlbar.grid(row=0, column=0) 
         
         treev.configure(xscrollcommand = verscrlbar.set) 
-        
+            # github.com/theseana/hichi
+
         treev["columns"] = ("1", "2", "3", "4") 
         treev['show'] = 'headings'
         treev.column("1", width = 90, anchor ='c') 
@@ -77,7 +77,7 @@ class GUI(tk.Tk):
         for m in movies:
             treev.insert("", 'end', text ="L1", 
             values =(m.name, m.year, m.director, m.rate)) 
-
+#  aryaaaaan
 
     def create(self):
         name = self.name_c.get()
