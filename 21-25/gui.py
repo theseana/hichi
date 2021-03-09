@@ -9,7 +9,7 @@ class GUI(tk.Tk):
         super().__init__()
         self.session = Connection().create_session()
         self.title('Movie Database')
-        self.geometry('390x210')
+        # self.geometry('390x210')
         
         self.frame_c = tk.LabelFrame(self, text='Create')
         self.frame_c.grid(row=0, column=0)
@@ -45,7 +45,49 @@ class GUI(tk.Tk):
 
         tk.Button(self.frame_r, text="Read", command=self.read).grid(row=1, column=0)
 
+        self.frame_d = tk.LabelFrame(self, text='Delete')
+        self.frame_d.grid(row=1, column=1)
+
+        tk.Label(self.frame_d, text='Movie').grid(row=0, column=0)
+        self.movie_d = tk.StringVar()
+        tk.Entry(self.frame_d, textvariable=self.movie_d).grid(row=0, column=1)
+
+        tk.Button(self.frame_d, text="Delete", command=self.delete).grid(row=1, column=0)
+
+
+        self.frame_u = tk.LabelFrame(self, text='Update')
+        self.frame_u.grid(row=0, column=1)
+
+        tk.Label(self.frame_u, text='Name').grid(row=0, column=0)
+        self.name_u = tk.StringVar()
+        tk.Entry(self.frame_u, textvariable=self.name_u).grid(row=0, column=1)
+        
+        tk.Label(self.frame_u, text='Year').grid(row=1, column=0)
+        self.year_u = tk.IntVar()
+        self.year_u.set(2021)
+        tk.Entry(self.frame_u, textvariable=self.year_u).grid(row=1, column=1)
+
+        tk.Label(self.frame_u, text='Director').grid(row=2, column=0)
+        self.director_u = tk.StringVar()
+        tk.Entry(self.frame_u, textvariable=self.director_u).grid(row=2, column=1)
+
+        tk.Label(self.frame_u, text='Rate').grid(row=3, column=0)
+        self.rate_u = tk.IntVar()
+        rate = ttk.Combobox(self.frame_u, width=18, textvariable=self.rate_u) 
+        rate['values'] = (1, 2, 3, 4)
+        rate.grid(row=3, column=1)
+
+        tk.Button(self.frame_u, text="Create", command=self.update).grid(row=4, column=0)
+
+
         self.mainloop()  
+
+
+    def delete(self):
+        movie = self.session.query(Movie).filter(Movie.id == self.movie_d.get())    
+        movie.delete()
+        self.session.commit()
+
 
     def read(self):
         name = self.movie_r.get()
