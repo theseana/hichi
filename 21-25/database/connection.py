@@ -5,8 +5,8 @@ from sqlalchemy.orm import sessionmaker
 class Connection:
 
     def __init__(self):
-        self.engine = create_engine('mysql://poulstar:poulstar@localhost/hichi')
-    
+        self.engine = create_engine('mysql+pymysql://poulstar:poulstar@localhost/hichi')
+
     def create_connection(self):
         return self.engine
     
